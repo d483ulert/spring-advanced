@@ -1,36 +1,41 @@
-package spring.advanced.trace.hellotrace;
+package spring.advanced.trace.logtrace;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
 import spring.advanced.trace.TraceId;
 import spring.advanced.trace.TraceStatus;
 
 @Slf4j
-@Component
-public class HelloTraceV2 {
+public class FieldLogTrace implements LogTrace{
+
     private static final String START_PREFIX = "-->";
     private static final String COMPLETE_PREFIX = "<--";
     private static final String EX_PREFIX = "<X-";
 
+    private TraceId traceIdHolder;
+
+    @Override
     public TraceStatus begin(String message) {
-        TraceId traceId = new TraceId();
+        syncTraceId();
+        TraceId traceId  = traceIdHolder;
         Long startTimeMs = System.currentTimeMillis();
         log.info("[" + traceId.getId() + "] " + addSpace(START_PREFIX, traceId.getLevel()) + message);
         return new TraceStatus(traceId, startTimeMs, message);
     }
 
-    //V2에서 추가
-    public TraceStatus beginSync(TraceId beforeTraceId, String message) {
-        TraceId nextId = beforeTraceId.createNextId();
-        Long startTimeMs = System.currentTimeMillis();
-        log.info("[" + nextId.getId() + "] " + addSpace(START_PREFIX,  nextId.getLevel()) + message);
-        return new TraceStatus(nextId, startTimeMs, message);
+    private void syncTraceId() {
+        if(traceIdHolder == null){
+            traceIdHolder = new TraceId();
+        }else{
+            traceIdHolder = traceIdHolder.createNextId();
+        }
     }
-
+    @Override
     public void end(TraceStatus status) {
         complete(status, null);
+
     }
 
+    @Override
     public void exception(TraceStatus status, Exception e) {
         complete(status, e);
     }
@@ -44,6 +49,16 @@ public class HelloTraceV2 {
         } else {
             log.info("[" + traceId.getId() + "] " + addSpace(EX_PREFIX, traceId.getLevel()) + status.getMessage() + " time=" + resultTimeMs + "ms" + "ex=" + e);
         }
+
+        relasesTraceId();
+    }
+
+    private void relasesTraceId(){
+        if(traceIdHolder.isFirstLevel()){
+            traceIdHolder = null; // destroy
+        }else{
+            traceIdHolder = traceIdHolder.createPreviousId();//이전 id 넘겨줌
+        }
     }
 
     private static String addSpace(String prefix, int level) {
@@ -54,4 +69,3 @@ public class HelloTraceV2 {
         return sb.toString();
     }
 }
-

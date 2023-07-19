@@ -1,4 +1,4 @@
-package spring.advanced.app.proxy.controller.v1;
+package spring.advanced.app.proxy.v1.controller.v1;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

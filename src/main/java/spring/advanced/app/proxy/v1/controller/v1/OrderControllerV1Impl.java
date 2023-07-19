@@ -1,6 +1,6 @@
-package spring.advanced.app.proxy.controller.v1;
+package spring.advanced.app.proxy.v1.controller.v1;
 
-import spring.advanced.app.proxy.service.v1.OrderServiceV1;
+import spring.advanced.app.proxy.v1.service.v1.OrderServiceV1;
 
 public class OrderControllerV1Impl implements OrderControllerV1{
     private final OrderServiceV1 orderServiceV1;

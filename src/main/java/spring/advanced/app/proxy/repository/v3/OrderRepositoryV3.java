@@ -1,7 +1,10 @@
-package spring.advanced.app.proxy.v1.repository.v1;
+package spring.advanced.app.proxy.repository.v3;
 
-public class OrderRespositoryV1Impl implements OrderRespositoryV1{
-    @Override
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class OrderRepositoryV3 {
+
     public void save(String itemId) {
         //저장로직
         if(itemId.equals("ex")){

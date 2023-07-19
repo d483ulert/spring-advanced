@@ -2,9 +2,9 @@ package spring.advanced.config.proxy;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import spring.advanced.app.proxy.v1.controller.v2.OrderControllerV2;
-import spring.advanced.app.proxy.v1.repository.v2.OrderRespositoryV2;
-import spring.advanced.app.proxy.v1.service.v2.OrderServiceV2;
+import spring.advanced.app.proxy.controller.v2.OrderControllerV2;
+import spring.advanced.app.proxy.repository.v2.OrderRepositoryV2;
+import spring.advanced.app.proxy.service.v2.OrderServiceV2;
 
 @Configuration
 public class V2Config {
@@ -20,8 +20,8 @@ public class V2Config {
     }
 
     @Bean
-    public OrderRespositoryV2 orderRepositoryV2() {
-        return new OrderRespositoryV2();
+    public OrderRepositoryV2 orderRepositoryV2() {
+        return new OrderRepositoryV2();
     }
 
 }

@@ -1,7 +1,7 @@
-package spring.advanced.app.proxy.v1.service.v1;
+package spring.advanced.app.proxy.service.v1;
 
 
-import spring.advanced.app.proxy.v1.repository.v1.OrderRespositoryV1;
+import spring.advanced.app.proxy.repository.v1.OrderRespositoryV1;
 
 public class OrderServiceV1Impl implements OrderServiceV1{
 

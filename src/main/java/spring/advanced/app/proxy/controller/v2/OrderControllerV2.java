@@ -1,10 +1,10 @@
-package spring.advanced.app.proxy.v1.controller.v2;
+package spring.advanced.app.proxy.controller.v2;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import spring.advanced.app.proxy.v1.service.v2.OrderServiceV2;
+import spring.advanced.app.proxy.service.v2.OrderServiceV2;
 
 @Slf4j
 @RequestMapping

@@ -1,4 +1,4 @@
-package spring.advanced.app.proxy.v1.repository.v1;
+package spring.advanced.app.proxy.repository.v1;
 
 public interface OrderRespositoryV1 {
 

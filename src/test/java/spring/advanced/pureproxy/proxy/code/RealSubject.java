@@ -9,7 +9,8 @@ public class RealSubject implements Subject{
     public String operation() {
       log.info("실제 객체 호출");
       sleep(1000);
-        return null;
+
+      return "data";
     }
 
     private void sleep(int millis){

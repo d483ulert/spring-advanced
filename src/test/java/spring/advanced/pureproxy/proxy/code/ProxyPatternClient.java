@@ -8,8 +8,7 @@ public class ProxyPatternClient {
         this.subject = subject;
     }
 
-
-    public void excute(){
+    public void execute(){
         subject.operation();
     }
 }

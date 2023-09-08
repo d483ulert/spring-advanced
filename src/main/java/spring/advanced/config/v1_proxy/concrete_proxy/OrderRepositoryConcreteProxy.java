@@ -17,13 +17,11 @@ public class OrderRepositoryConcreteProxy extends OrderRepositoryV2 {
 
 
 
-    @Override
     public void save(String itemId){
         TraceStatus status = null;
 
         try {
             status = trace.begin("OrderRepository.request()");
-            target.save(itemId);
             trace.end(status);
         } catch (Exception e) {
             trace.exception(status,e);

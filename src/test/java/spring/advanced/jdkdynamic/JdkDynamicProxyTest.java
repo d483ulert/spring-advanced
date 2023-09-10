@@ -27,6 +27,7 @@ public class JdkDynamicProxyTest {
     @Test
     void dynamicB(){
         BInterface target = new BImpl();
+        // handler가 프록시역할
         TimeInvocationHandler handler = new TimeInvocationHandler(target);
 
         BInterface proxy = (BInterface) Proxy.newProxyInstance(BInterface.class.getClassLoader(),new Class[]{BInterface.class},handler);

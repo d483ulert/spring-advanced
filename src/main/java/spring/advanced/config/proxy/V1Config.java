@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import spring.advanced.app.proxy.controller.v1.OrderControllerV1;
 import spring.advanced.app.proxy.controller.v1.OrderControllerV1Impl;
 import spring.advanced.app.proxy.repository.v1.OrderRespositoryV1;
-import spring.advanced.app.proxy.repository.v1.OrderRespositoryV1Impl;
+import spring.advanced.app.proxy.repository.v1.OrderRepositoryV1Impl;
 import spring.advanced.app.proxy.service.v1.OrderServiceV1;
 import spring.advanced.app.proxy.service.v1.OrderServiceV1Impl;
 
@@ -24,7 +24,7 @@ public class V1Config {
 
     @Bean
     public OrderRespositoryV1 orderRepositoryV1() {
-        return new OrderRespositoryV1Impl();
+        return new OrderRepositoryV1Impl();
     }
 
 }

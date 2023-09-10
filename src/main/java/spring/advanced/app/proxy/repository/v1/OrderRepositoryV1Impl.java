@@ -1,6 +1,6 @@
 package spring.advanced.app.proxy.repository.v1;
 
-public class OrderRespositoryV1Impl implements OrderRespositoryV1{
+public class OrderRepositoryV1Impl implements OrderRespositoryV1{
     @Override
     public void save(String itemId) {
         //저장로직

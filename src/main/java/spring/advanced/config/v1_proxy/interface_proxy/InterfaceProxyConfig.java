@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import spring.advanced.app.proxy.controller.v1.OrderControllerV1;
 import spring.advanced.app.proxy.controller.v1.OrderControllerV1Impl;
 import spring.advanced.app.proxy.repository.v1.OrderRespositoryV1;
-import spring.advanced.app.proxy.repository.v1.OrderRespositoryV1Impl;
+import spring.advanced.app.proxy.repository.v1.OrderRepositoryV1Impl;
 import spring.advanced.app.proxy.service.v1.OrderServiceV1;
 import spring.advanced.app.proxy.service.v1.OrderServiceV1Impl;
 import spring.advanced.trace.logtrace.LogTrace;
@@ -27,7 +27,7 @@ public class InterfaceProxyConfig {
 
     @Bean
     public OrderRespositoryV1 orderRepositoryV1(LogTrace logTrace){
-        OrderRespositoryV1Impl repositoryImpl = new OrderRespositoryV1Impl();
+        OrderRepositoryV1Impl repositoryImpl = new OrderRepositoryV1Impl();
         return new OrderRepositoryInterfaceProxy(repositoryImpl,logTrace);
     }
 

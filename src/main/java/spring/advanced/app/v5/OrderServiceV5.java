@@ -20,6 +20,7 @@ public class OrderServiceV5 {
     public void orderItem(String itemId) throws InterruptedException {
         template.execute("OrderService.request", () -> {
             orderRepository.save(itemId);
+            orderRepository.save(itemId);
             return null;
         });
     }
